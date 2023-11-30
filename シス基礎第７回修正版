@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#define MAXSTR 256
+
+int main()
+{
+    char x[MAXSTR];
+    int ucc, lcc, oth;
+    printf("パスワードを入力してください\n");
+    scanf("%s",x);
+    for(int k=0; k<strlen(x); k++)
+    {
+        if(isalpha(x[k])==0)
+        oth+=1;
+        else
+        oth+=0;
+    }
+    for(int i=0; i<strlen(x); i++)
+    {
+        if( 'A'<=x[i] && x[i]<='Z'){
+            ucc+=1;}
+        else{
+            ucc+=0;}
+    }
+     for(int j=0; j<strlen(x); j++)
+    {
+        if( x[j]>='a' && x[j]<='z')
+        lcc+=1;
+    }
+    
+    if( ucc>=1&&lcc>=1&&oth>=1&&8<=strlen(x) && strlen(x)<=16 )
+    printf("!!!クリア!!!\n安全なパスワードです！");
+    else
+    printf("!ダメなパスワードです!\n");
+    if(16<strlen(x)){
+        printf("長すぎます！\n");}
+    else if(strlen(x)<8){
+        printf("短すぎます！\n");}
+    if(ucc==0)
+    {
+        printf("大文字がありません！\n");
+    }
+    if(lcc==0)
+    {
+        printf("小文字がありません！\n");
+    }
+    if(oth==0)
+    {
+        printf("その他の文字がありません！\n");
+    }
+}
